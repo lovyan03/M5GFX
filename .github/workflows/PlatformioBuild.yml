@@ -30,7 +30,6 @@ jobs:
           - esp32
           - esp32-s3
           - esp32-c3
-          - esp32-p4
           - m5stick-c
           - m5stack-core-esp32
           - m5stack-core2
