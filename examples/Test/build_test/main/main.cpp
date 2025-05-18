@@ -1,10 +1,3 @@
-#if !defined LGFX_AUTODETECT
-  #define LGFX_AUTODETECT
-#endif
-
-#if !defined LGFX_USE_V1
-  #define LGFX_USE_V1
-#endif
 
 #if __has_include(<SPIFFS.h>)
   #include <SPIFFS.h>
@@ -16,17 +9,7 @@
   #define DUMMY_DISPLAY
 #endif
 
-#if defined DUMMY_DISPLAY
-  class LGFX : public m5gfx::M5GFX
-  {
-   public:
-    LGFX(void)
-    {
-    }
-  };
-#endif
-
-static LGFX display1;
+static M5GFX display1;
 static LGFX_Sprite sprite(&display1);
 
 void test(LGFX_Device &lcd)
