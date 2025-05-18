@@ -15,6 +15,7 @@ on:
     - '**IDFBuild.yml'
     - 'CMakeLists.txt'
     - 'esp-idf-versions.php'
+    - 'examples/Test/build_test/main/CMakeLists.txt'
   pull_request:
   workflow_dispatch:
 
