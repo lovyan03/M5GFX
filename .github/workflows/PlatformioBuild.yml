@@ -12,6 +12,8 @@ on:
     - '**.h'
     - '**.c'
     - '**PlatformioBuild.yml'
+    - '**/platformio.ini'
+    - '**/platformio_esp32.ini'
   pull_request:
   workflow_dispatch:
 
