@@ -47,6 +47,9 @@ jobs:
           - { board: esp32-s2, platform-version: 1.0.6 }
           - { board: esp32-p4, platform-version: 1.0.6 }
           - { board: m5stack-cores3, platform-version: 1.0.6 }
+          - { board: esp32-p4, platform-version: 2.0.15 }
+          - { board: esp32-p4, platform-version: 2.0.16 }
+          - { board: esp32-p4, platform-version: 2.0.17 }
 
       fail-fast: false
 

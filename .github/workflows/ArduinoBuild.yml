@@ -55,6 +55,11 @@ jobs:
           # 3D matrix applies to these:
           - { platform: esp32, archi: esp32, ... }
 
+        exclude:
+          - { board: esp32p4, platform-version: 2.0.15 }
+          - { board: esp32p4, platform-version: 2.0.16 }
+          - { board: esp32p4, platform-version: 2.0.17 }
+
       fail-fast: false
 
     steps:
