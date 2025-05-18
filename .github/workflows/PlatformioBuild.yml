@@ -86,5 +86,29 @@ jobs:
           cd ${{ env.PROJECT_DIR }}
           export pio_ver=${{ matrix.platform-version }}
           export pio_env="${pio_ver//./_}"
-          pio pkg install -e ${{ matrix.board }}-$pio_env --no-save --library file://$(realpath ../../../)
-          pio run -e ${{ matrix.board }}-$pio_env
+          
+          # Map GitHub Actions board names to PlatformIO environment names
+          if [[ "${{ matrix.board }}" == "esp32" ]]; then
+            env_prefix="esp32"
+          elif [[ "${{ matrix.board }}" == "esp32-s2" ]]; then
+            env_prefix="esp32s2"
+          elif [[ "${{ matrix.board }}" == "esp32-s3" ]]; then
+            env_prefix="esp32s3"
+          elif [[ "${{ matrix.board }}" == "esp32-c3" ]]; then
+            env_prefix="esp32c3"
+          elif [[ "${{ matrix.board }}" == "esp32-p4" ]]; then
+            env_prefix="esp32p4"
+          elif [[ "${{ matrix.board }}" == "m5stick-c" ]]; then
+            env_prefix="m5stickc"
+          elif [[ "${{ matrix.board }}" == "m5stack-core-esp32" ]]; then
+            env_prefix="m5stack"
+          elif [[ "${{ matrix.board }}" == "m5stack-core2" ]]; then
+            env_prefix="m5core2"
+          elif [[ "${{ matrix.board }}" == "m5stack-cores3" ]]; then
+            env_prefix="m5cores3"
+          else
+            env_prefix="${{ matrix.board }}"
+          fi
+          
+          pio pkg install -e ${env_prefix}-$pio_env --no-save --library file://$(realpath ../../../)
+          pio run -e ${env_prefix}-$pio_env
